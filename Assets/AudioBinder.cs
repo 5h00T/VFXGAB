@@ -33,10 +33,11 @@ public class AudioBinder : VFXBinderBase
 
     public override bool IsValid(VisualEffect component)
     {
-        return component.HasTexture(outputWaveMapProperty) &&
-         component.HasTexture(outputSpectrumMapProperty) &&
-         component.HasUInt(waveLengthProperty) &&
-         component.HasUInt(spectrumLengthProperty);
+        return audioSource != null &&
+            component.HasTexture(outputWaveMapProperty) &&
+            component.HasTexture(outputSpectrumMapProperty) &&
+            component.HasUInt(waveLengthProperty) &&
+            component.HasUInt(spectrumLengthProperty);
     }
 
     private void GetWave()
